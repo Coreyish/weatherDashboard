@@ -1,5 +1,10 @@
-//Outside modules
+//Global modules 
 var apikey = "d0e4a9d89c0f8c39eaf0e9e079e32f52"
+//had a issue with some keys not working, still working on it
+//1b18ce13c84e21faafb19c931bb29331
+//fed26a7abac8015041eece1256ba3acd
+//d0e4a9d89c0f8c39eaf0e9e079e32f52
+
 //TODO:method to bring up past searches 
 var searchHistoryList = function(cityName){
     $('.past-search:contains("' + cityName + '")').remove();
@@ -34,7 +39,7 @@ var searchHistoryList = function(cityName){
     $("#search-input").val("");
 
 };
-
+//This line uses jQuery to find and remove any elements with the class past-search that contain the text specified by the cityName variable.
 // load saved search history entries into search history container
 var loadSearchHistory = function() {
     // get saved search history
@@ -56,14 +61,14 @@ var loadSearchHistory = function() {
 
 //TODO:search for current weather section 
 var currentWeatherSection = function(cityName) {
-    // get and use data from open weather current weather api end point
+    // use data from open weather current weather api end point
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`)
         // get response and turn it into objects
         .then(function(response) {
             return response.json();
         })
         .then(function(response) {
-            // get city's longitude and latitude
+            // method to get city's longitude and latitude with 
             var cityLon = response.coord.lon;
             var cityLat = response.coord.lat;
 
@@ -179,7 +184,7 @@ var fiveDayForecastSection = function(cityName) {
         })
 };
 
-// called when the search form is submitted
+//the method is called when the search form is submitted
 $("#search-form").on("submit", function() {
     event.preventDefault();
     
@@ -197,7 +202,7 @@ $("#search-form").on("submit", function() {
     }
 });
 
-// called when a search history entry is clicked
+// called when a search history entry is clicked, built for mutiple entries
 $("#search-history-container").on("click", "p", function() {
     // get text (city name) of entry and pass it as a parameter to display weather conditions
     var previousCityName = $(this).text();

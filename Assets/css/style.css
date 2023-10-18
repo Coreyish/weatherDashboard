@@ -45,7 +45,7 @@
     height: 45px;
     line-height: 45px;
     padding: 0 20px;
-    color: grey;
+    color: rgb(73, 72, 72);
 }
 
 .current-weather-container {
@@ -85,7 +85,7 @@
 .current-number {
     font-size: 20px;
     display: inline;
-    color: white;
+    color: rgb(101, 26, 26);
     padding: 5px 10px;
 }
 
